@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mapa do Ceará — Colorir Municípios</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <aside class="panel">
+      <h1>Mapa do Ceará — Municípios</h1>
+      <div class="muted">Clique em um município para preencher a cor. Ideal para apresentações.</div>
+
+      <label for="color">Cor atual</label>
+      <div class="row">
+        <input id="color" type="color" value="#4da3ff" title="Cor de preenchimento" />
+        <button id="eyedrop">Contagotas</button>
+        <button id="resetSel">Limpar seleção</button>
+      </div>
+
+      <label for="search">Pesquisar município</label>
+      <input id="search" type="text" placeholder="Ex.: Fortaleza" />
+
+      <div class="row">
+        <button id="fitAll">Enquadrar Estado</button>
+        <button id="resetAll">Resetar cores</button>
+      </div>
+
+      <div class="legend">
+        <span class="sw"><span class="dot" style="background:#fff"></span> Sem preenchimento</span>
+        <span class="sw"><span class="dot" id="legendColor"></span> Cor atual</span>
+      </div>
+
+      <details>
+        <summary>Carregar GeoJSON local (opcional)</summary>
+        <div class="muted" style="margin:6px 0 8px">Caso esteja sem internet, você pode carregar um arquivo
+          <b>GeoJSON</b> dos municípios do CE.</div>
+        <input id="file" type="file" accept="application/geo+json,application/json,.geojson" />
+      </details>
+
+      <div class="credits">
+        Fonte do GeoJSON padrão: <span class="badge">tbrugz/geodata-br (CC0)</span><br />
+        Dados originais: IBGE. Para limites 2025, consulte IPECE/CE.
+      </div>
+    </aside>
+
+    <main id="map"></main>
+  </div>
+
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- JS externo -->
+  <script src="script.js"></script>
+</body>
+
+</html>
